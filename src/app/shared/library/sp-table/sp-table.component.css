@@ -1,0 +1,5 @@
+/* Optional: Add hover effect for rows */
+/* Optional: Add hover effect for rows */
+p-table tr:hover {
+  background-color: #f6f5f5; /* Light background on hover */
+}

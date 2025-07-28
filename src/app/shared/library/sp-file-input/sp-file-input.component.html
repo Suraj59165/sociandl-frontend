@@ -1,0 +1,30 @@
+<div *ngIf="!hidden">
+  <div class="input-group">
+    <button type="button" class="btn btn-secondary" (click)="openFileSelector()">
+      Choose Files
+    </button>
+
+    <input #fileInput type="file" class="d-none" [accept]="accept" (change)="onFilesSelected($event)" multiple />
+
+    <!-- Scrollable badge container -->
+    <div class="form-control d-flex align-items-center file-scroll-box" tabindex="0">
+      <ng-container *ngIf="documents?.length; else noFiles">
+        <div *ngFor="let doc of documents; let i = index" class="badge file-badge bg-light text-dark border me-2">
+          <span>{{ doc.fileName }}</span>
+          <button type="button" class="btn-close btn-sm ms-2" aria-label="Remove" (click)="removeFile(i)"></button>
+        </div>
+      </ng-container>
+      <ng-template #noFiles>
+        <span class="text-muted">No file chosen</span>
+      </ng-template>
+    </div>
+
+    <span class="input-group-text">{{ documents?.length }} selected</span>
+  </div>
+
+  <div class="error-text" [style.visibility]="errorHandler?.invalid ? 'visible' : 'hidden'">
+    <small>
+      {{ errorHandler?.error || '\u00A0' }} <!-- Non-breaking space when no error -->
+    </small>
+  </div>
+</div>

@@ -1,0 +1,92 @@
+ <div class="container-fluid p-0">
+
+  <div class="login-container d-flex align-items-center justify-content-center py-3">
+    <div class="login-form">
+
+<!--      <img alt="" class="d-block mx-auto" src="paaCrypto.png">-->
+      <h3 class="text-center ">Create Your Account!</h3>
+<!--      <p class="text-center text-muted px-3">Create your PAA account to access your dashboard, manage your profile, and-->
+<!--        explore more features.</p>-->
+      <div class="p-card">
+         <!-- <div class="image-upload-container text-center mb-2">
+          <img (click)="selectMedium = true" *ngIf="!isCameraOn && !capturedImage" alt="Profile Image"
+            class="profile-image"
+            src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png">
+          <video #videoElement *ngIf="isCameraOn" autoplay class="profile-image"></video>
+          <img *ngIf="capturedImage" [src]="capturedImage" alt="Captured Image" class="profile-image">
+        </div>
+
+         <div class="d-flex justify-content-around align-items-center w-50 m-auto mb-2">
+          <button (click)="startCamera()" *ngIf="!capturedImage && selectMedium" class="btn btn-primary mb-3">
+            <i class="pi pi-camera"></i>
+          </button>
+
+          <button (click)="retakePhoto()" *ngIf="capturedImage" class="btn btn-warning">
+            <i class="pi pi-refresh"></i>
+          </button>
+        </div>
+
+        <div *ngIf="isCameraOn && !capturedImage" class="text-center">
+          <button (click)="capturePhoto()" class="btn btn-success capture-btn"></button>
+        </div>
+        <div class="my-1">
+          <small class="error-text">{{error}}</small>
+        </div>  -->
+
+        <app-sp-input [(ngModel)]="user.name" [errorHandler]="errorHandler('name')" placeHolder="Name"
+          type="text" id="name" icon="pi pi-user"></app-sp-input>
+
+        <app-sp-input [(ngModel)]="user.email" [errorHandler]="errorHandler('email')" id="email"
+          placeHolder="Email" type="text" icon="pi pi-envelope"></app-sp-input>
+
+        <app-sp-input [(ngModel)]="user.userAuth.password" [errorHandler]="errorHandler('password')" id="password"
+           placeHolder="Password" type="password" icon="pi pi-lock"></app-sp-input>
+
+        <app-sp-input [(ngModel)]="user.existingPassword" [errorHandler]="errorHandler('existingPassword')"
+          id="confirmPassword" placeHolder="Confirm Password" type="password"
+          icon="pi pi-lock"></app-sp-input>
+
+        <div class="row">
+          <div class="col-3 mt-3">
+            <input class="form-control" list="datalistOptions" id="exampleDataList" placeholder="+" [(ngModel)]="user.countryCode">
+          </div>
+          <div class="col-9">
+            <div class="col">
+              <app-sp-input [(ngModel)]="user.phoneNumber" [errorHandler]="errorHandler('phoneNumber')" id="phoneNumber"
+                 placeHolder="Contact Number" type="number" icon="pi pi-phone"></app-sp-input>
+            </div>
+          </div>
+        </div>
+
+         <!-- <app-sp-file-input [(documents)]="user.documents" [accept]="'image/*'"
+          [entityDocType]="EntityDocType.USER_KYC_DOCUMENTS" [entityModuleCode]="EntityModuleCode.USER"
+          [errorHandler]="errorHandler('documents')" [label]="'Select KYC documents'"
+          [maxFiles]="2"></app-sp-file-input>  -->
+
+
+        <div *ngIf="otpSent" class="">
+          <app-sp-input [(ngModel)]="user.otp" [errorHandler]="errorHandler('otp')" id="otp"
+            placeHolder="Enter OTP" type="text"></app-sp-input>
+          <small *ngIf="seconds==0" class="large-text px-1 d-inline-block mx-2"><a (click)="generateOTP()">Resend
+              Code</a></small>
+
+          <small *ngIf="otpSent && seconds!==0" class="px-1 d-inline-block mx-2">Resend OTP will be available in <small
+              class="text-primary">{{ seconds |spNumberFormat }}s</small></small>
+        </div>
+
+        <div class="text-center">
+          <app-sp-button (click)="proceedToVerification()" [loading]="registerLoadingFlag" label="Register"
+            styleClass="L_Button S_Button"></app-sp-button>
+        </div>
+
+        <div class="text-center mt-2">
+          <p>Already have an account? <a class="large-text text-decoration-none pointer"
+              routerLink="/auth/login">Login</a></p>
+        </div>
+      </div>
+    </div>
+   </div>
+</div>
+
+
+

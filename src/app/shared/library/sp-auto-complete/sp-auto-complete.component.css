@@ -1,0 +1,9 @@
+::ng-deep .p-input-text {
+  width: 100%;
+}
+
+.error-text {
+  color: red;
+  font-size: 12px;
+  margin-top: 2px;
+}

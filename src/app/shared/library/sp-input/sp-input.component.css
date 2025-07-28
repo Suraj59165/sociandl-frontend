@@ -1,0 +1,34 @@
+/* Remove number input arrows (spinner) */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+/* For Webkit browsers like Chrome and Safari */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.input-wrapper label {
+  pointer-events: none;
+}
+
+.error-text {
+  color: red;
+  font-size: 12px;
+}
+
+.error-border {
+  border: 1px solid red !important;
+  box-shadow: 0 0 0 0.05rem rgba(255, 0, 0, 0.25);
+  border-radius: 4px;
+}
+
+.red-label {
+  color: red !important;
+}
+
+.invisible {
+  visibility: hidden;
+}

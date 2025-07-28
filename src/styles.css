@@ -1,1 +1,376 @@
 /* You can add global styles to this file, and also import other style files */
+
+/* You can add global styles to this file, and also import other style files */
+/* Hide scrollbar for Chrome, Safari, and Edge */
+::-webkit-scrollbar {
+  display: none;
+}
+
+
+:root {
+  --p-emerald-50: #ecfdf5 !important;
+  --p-emerald-100: #d1fae5 !important;
+  --p-emerald-200: #a7f3d0 !important;
+  --p-emerald-300: #6ee7b7 !important;
+  --p-emerald-400: #34d399 !important;
+  --p-emerald-500: #1175e4 !important;
+  --p-emerald-600: #1E90FF !important;
+  --p-emerald-700: #3a9bfc !important;
+  --p-emerald-800: #065f46 !important;
+  --p-emerald-900: #064e3b !important;
+  --p-emerald-950: #022c22 !important;
+  --Primary: #5F9EA0 !important;
+  --Secondary: #228B22!important;
+  --Danger: #D22B2B !important;
+  --Info: #D1D1D1 !important;
+  --Dark: #0F0F0F !important
+}
+
+
+body {
+  font-family: "Roboto", sans-serif;
+}
+
+.table-primary {
+  --bs-table-color: #000;
+  --bs-table-bg: #fff;
+  --bs-table-border-color: #a6b5cc;
+  --bs-table-striped-bg: #c5d7f2;
+  --bs-table-striped-color: #000;
+  --bs-table-active-bg: #bacbe6;
+  --bs-table-active-color: #000;
+  --bs-table-hover-bg: #bfd1ec;
+  --bs-table-hover-color: #000;
+  color: var(--bs-table-color);
+  border-color: var(--bs-table-border-color);
+}
+
+.btn-style {
+  box-shadow: none !important;
+}
+
+.btn-style::before {
+  background: transparent;
+  border: 1px solid var(--p-emerald-500);
+  box-shadow: none !important;
+}
+
+/* Hide scrollbar for Firefox */
+html {
+  scrollbar-width: none;
+  font-family: "Inter", sans-serif;
+}
+
+/* Hide scrollbar for IE, Edge, and older browsers */
+body {
+  -ms-overflow-style: none;
+  background-color: #f7f6f6;
+  /* font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; */
+  font-family: inherit;
+  font-size: 14px;
+}
+
+.pi-trash {
+  color: var(--p-emerald-500)
+}
+
+
+.login-container,
+.reset-password-container {
+  background-color: #fff;
+  width: 100%;
+  margin-right: auto;
+  max-width: 600px;
+  padding: 1rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  height: 100vh;
+  overflow: scroll;
+}
+
+.login-form {
+  background: #ffffff;
+  border-radius: 8px;
+  width: 100%;
+  max-width: 450px;
+  padding-top: 20px;
+}
+
+.p-card {
+  width: 100%;
+  padding: 1.2rem;
+  box-shadow: none;
+  border-radius: 8px !important;
+}
+
+
+.br {
+  border-radius: 8px;
+}
+
+.bg {
+  background-color: #ececec;
+}
+
+.transaction-actions,
+.add-withdraw {
+  height: 75vh !important;
+  overflow-y: scroll;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+.fs-7 {
+  font-size: 14px;
+}
+
+p {
+  white-space: normal;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  max-width: 100%;
+}
+
+.accountNo,
+.p-autocomplete {
+  width: 100%;
+}
+
+.bank-account-dialog .p-dialog {
+  width: 35%;
+}
+
+
+.p-menubar {
+  border: none !important;
+  --p-menubar-padding: 0;
+}
+
+.p-menubar-item-link {
+  padding: 10px 16px !important;
+}
+
+.p-menubar-item-link-active {
+  background: #f1f5f9 !important;
+}
+
+.p-menubar-item-content:hover {
+  color: var(--p-emerald-500);
+  background: #f1f5f9;
+}
+
+.p-drawer-header {
+  border-bottom: 1px solid #bababa;
+  padding: 5px 10px !important;
+}
+
+.p-drawer-header .p-drawer-title {
+  color: #000;
+  font-weight: 500;
+  font-size: 18px !important;
+}
+
+.payment-account-detail {
+  height: 58vh !important;
+  overflow-y: scroll;
+}
+
+.p-drawer-header .p-icon-wrapper {
+  color: #000
+}
+
+.p-drawer-header .p-button:hover .p-icon-wrapper {
+  color: #c02628
+}
+
+.bg-img app-sp-button .button .p-component {
+  width: 100% !important;
+}
+
+.transaction-card .p-accordion-content {
+  padding: 0px !important;
+}
+
+.p-tab-active {
+  --p-tabs-tab-active-color: #090808;
+}
+
+.p-tab {
+  font-size: 16px !important;
+}
+
+.p-dialog.p-component {
+  border: none !important;
+  width: 550px !important;
+}
+
+.p-dialog-content small {
+  margin-bottom: 6px;
+  display: block;
+}
+
+.p-input-text {
+  border-color: #1097b9 !important;
+}
+
+
+.p-dialog-header .p-dialog-title {
+  font-weight: 500;
+}
+
+.p-dialog-content {
+  padding-top: 1.5rem !important;
+}
+
+.p-dialog-close-button > button {
+  background: #ffffffbf !important;
+}
+
+.bg-primary {
+  background-color: rgb(25 118 141) !important;
+}
+
+.p-menubar-root-list > .p-menubar-item > .p-menubar-item-content > .p-menubar-item-link {
+  border-radius: 4px;
+}
+
+.pi-pencil {
+  color: #25eb25
+}
+
+.full-height.ad-listing .p-card {
+  padding: 0 !important;
+}
+
+.filterModal .p-dialog-title {
+  font-size: 16px !important;
+  font-weight: 700;
+}
+
+.filterModal .p-dialog-content {
+  padding: 7px 10px !important;
+}
+
+.p-button {
+  border-radius: 5px !important;
+  padding: 3px 8px !important;
+  font-size: 15px;
+
+}
+
+.p-input-text {
+  padding-block: 4px !important;
+  font-size: .9rem;
+}
+
+.p-dialog-header {
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+  padding: 2px 10px !important;
+  border-bottom: 1px solid #bababa;
+}
+
+.ad-order-view {
+  height: 65vh !important;
+  overflow-y: scroll;
+}
+
+.all-user-view {
+  height: 90vh !important;
+
+}
+
+@media (max-width: 600px) {
+  .p-menubar-mobile-active .p-menubar-root-list {
+    max-width: 184px;
+    width: 100%;
+  }
+}
+
+
+@media (max-width: 480px) {
+  .p-dialog.p-component {
+    width: 90% !important;
+  }
+
+  .p-menubar-mobile-active .p-menubar-root-list {
+    left: -10px;
+    width: 300px !important;
+    position: absolute !important;
+    max-width: 227px;
+  }
+}
+
+.p-overflow-hidden {
+  overflow: visible !important;
+}
+
+.sticky-header {
+  position: sticky !important;
+  top: 0;
+  z-index: 9999;
+  width: 100%;
+}
+
+.p-toast {
+  z-index: 10000 !important;
+}
+
+.custom-icon-size .pi {
+  font-size: 16px !important;
+
+}
+
+.custom-icon-size {
+  background: white !important;
+}
+
+.custom-icon-size .pi:hover {
+  background: rgb(238, 238, 241);
+}
+
+.appeal-dialog .form-control {
+  font-size: 14px !important;
+}
+/* Css for long button */
+.large-btn{
+  margin: 5px 0px;
+  width:  100%;
+}
+
+/* Css for short button */
+.small-btn{
+  background-color: var(--Primary) !important;
+  border :1px solid var(--Primary) !important;
+  color: var(--p-emerald-50) !important;
+}
+
+/* Css for Toogle */
+.p-toggle-switch-slider{
+  background-color: var(--Primary) !important;
+}
+
+.large-text{
+  color: var(--Primary) !important;
+}
+
+.text-danger{
+  color: var(--Danger) !important;
+}
+.text-success{
+  color: var(--Secondary) !important;
+}
+/* input class */
+.p-input-text{
+  border:solid var(--Info) 0.5px !important;
+  padding-top: 10px !important;
+  padding-bottom: 10px !important;
+
+}
+.p-input-text:focus{
+  border:solid var(--Dark) 0.5px !important;
+}
+label{
+  color: var(--p-emerald-800) !important;
+}

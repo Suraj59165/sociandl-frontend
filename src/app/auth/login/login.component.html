@@ -1,0 +1,42 @@
+<div class="container-fluid p-0">
+  <div class="login-container d-flex align-items-center justify-content-center py-3 ">
+    <div class="login-form">
+<!--      <img  class="d-block mx-auto" src="paaCrypto.png">-->
+      <h3 class="text-center">Welcome!</h3>
+<!--      <p class="text-center text-muted px-3">Please log in to your PAA account to access your dashboard, manage your profile,-->
+<!--        and explore more features.</p>-->
+      <div class="p-card">
+
+        <app-sp-input [(ngModel)]="loginRequest.email" [errorHandler]="errorHandler('email')"
+          id="email"  placeHolder="Email" type="email" icon="pi pi-envelope"  >
+        </app-sp-input>
+
+        <app-sp-input [(ngModel)]="loginRequest.password" [errorHandler]="errorHandler('password')"
+           id="password"  placeHolder="Password" type="password" icon="pi pi-lock">
+        </app-sp-input>
+
+        <small class="forgot-password">
+          <a class="large-text" routerLink="/auth/resetPassword">Forgot Password?</a>
+        </small>
+
+        <div class="text-center">
+          <app-sp-button
+          (click)="login()"
+          [loading]="loginLoadingFlag"
+          label="Login"
+          styleClass="L_Button S_Button"
+         >
+          </app-sp-button>
+        </div>
+
+        <div class="text-center mt-2">
+          <p class="register-text">
+            Don't have an account?
+            <a class="register-link large-text" routerLink="/auth/register">Register</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

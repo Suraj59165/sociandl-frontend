@@ -1,0 +1,58 @@
+<p-table (onPage)="onPageChange($event)" (onRowSelect)="onRowSelect($event)" [lazy]="true" [paginator]="totalItems > 5" [resizableColumns]="true"
+         [rowsPerPageOptions]="AppConst.PAGE_SIZE_OPTIONS"
+         [rows]="itemsPerPage" [totalRecords]="totalItems" [value]="tableData"
+         class="table table-bordered" showGridlines>
+  <!-- ✅ Page Change Event -->
+
+  <ng-template pTemplate="header">
+    <tr class="table-primary">
+      <th (click)="sortData(col)" *ngFor="let col of tableColumns" class="text-center">
+        {{ col.header }}
+      </th>
+    </tr>
+  </ng-template>
+  <ng-template let-i="index" let-rowData pTemplate="body">
+    <tr (click)="onRowSelect(rowData)" *ngIf="!showSkeleton" class="border-bottom"> <!-- ✅ Row Selection -->
+      <td *ngFor="let col of tableColumns" [ngSwitch]="col.type" class="text-center">
+        <ng-container *ngSwitchCase="'SR_NO'">
+          {{ (currentPage - 1) * itemsPerPage + tableData.indexOf(rowData) + 1 }}
+        </ng-container>
+        <ng-container *ngSwitchCase="'CHECK'">
+          <input [(ngModel)]="rowData[col.columnData]" class="form-check-input" type="checkbox"/>
+        </ng-container>
+        <ng-container *ngSwitchCase="'NUMBER'">
+          {{ (col?.columnData ? col?.columnData(rowData, i) : '') | spNumberFormat }}
+        </ng-container>
+        <ng-container *ngSwitchCase="'TEXT'">
+          {{ col?.columnData ? col?.columnData(rowData, i) : '' }}
+        </ng-container>
+        <ng-container *ngSwitchCase="'DATE'">
+          {{ col?.columnData ? col?.columnData(rowData, i) : '' }}
+        </ng-container>
+        <ng-container *ngSwitchCase="'CHAT'">
+          {{ col?.columnData ? col?.columnData(rowData, i) : '' }}
+        </ng-container>
+        <ng-container *ngSwitchCase="'ACTION'">
+          <div *ngFor="let action of col.actionOptions" class="d-inline-block mx-1">
+            <i (click)="onAction(action, rowData)" [ngClass]="[getActionIcon(action), getActionColor(action)]"
+               class="fs-5"></i>
+          </div>
+        </ng-container>
+      </td>
+    </tr>
+    <tr *ngIf="showSkeleton">
+      <td *ngFor="let col of tableColumns">
+        <p-skeleton height="20px" width="100%"></p-skeleton>
+      </td>
+    </tr>
+  </ng-template>
+
+
+  <ng-template pTemplate="emptymessage">
+    <tr>
+      <td [attr.colspan]="tableColumns.length" class="text-center py-5 text-muted">
+        No Data Found
+      </td>
+    </tr>
+  </ng-template>
+</p-table>
