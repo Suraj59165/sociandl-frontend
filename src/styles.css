@@ -155,11 +155,6 @@ p {
   background: #f1f5f9 !important;
 }
 
-.p-menubar-item-content:hover {
-  color: var(--p-emerald-500);
-  background: #f1f5f9;
-}
-
 .p-drawer-header {
   border-bottom: 1px solid #bababa;
   padding: 5px 10px !important;
@@ -178,10 +173,6 @@ p {
 
 .p-drawer-header .p-icon-wrapper {
   color: #000
-}
-
-.p-drawer-header .p-button:hover .p-icon-wrapper {
-  color: #c02628
 }
 
 .bg-img app-sp-button .button .p-component {
@@ -326,16 +317,12 @@ p {
   background: white !important;
 }
 
-.custom-icon-size .pi:hover {
-  background: rgb(238, 238, 241);
-}
-
 .appeal-dialog .form-control {
   font-size: 14px !important;
 }
 /* Css for long button */
 .large-btn{
-  margin: 5px 0px;
+  margin: 5px 0;
   width:  100%;
 }
 
@@ -346,13 +333,9 @@ p {
   color: var(--p-emerald-50) !important;
 }
 
-/* Css for Toogle */
+/* Css for Toggle */
 .p-toggle-switch-slider{
   background-color: var(--Primary) !important;
-}
-
-.large-text{
-  color: var(--Primary) !important;
 }
 
 .text-danger{
@@ -369,8 +352,13 @@ p {
 
 }
 .p-input-text:focus{
-  border:solid var(--Dark) 0.5px !important;
+  border:solid var(--Dark) 0.5 !important;
 }
+
 label{
-  color: var(--p-emerald-800) !important;
+  color: #464749 !important;
+}
+
+.p-inputtext:enabled:focus{
+  border-color:#94a3b8 !important;
 }

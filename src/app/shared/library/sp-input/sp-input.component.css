@@ -32,3 +32,21 @@ input[type="number"]::-webkit-outer-spin-button {
 .invisible {
   visibility: hidden;
 }
+
+.custom-input input{
+  padding-block:5px;
+  font-size: 12px;
+  margin-top:4px;
+}
+
+.custom-input label{
+  font-size:10px;
+  font-weight:500;
+}
+.pi{
+  font-size:12px;
+}
+
+.p-inputicon{
+  margin-top:-5px;
+}

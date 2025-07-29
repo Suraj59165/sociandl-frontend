@@ -1,14 +1,11 @@
 <div class="container-fluid p-0">
   <div class="login-container d-flex align-items-center justify-content-center py-3 ">
     <div class="login-form">
-<!--      <img  class="d-block mx-auto" src="paaCrypto.png">-->
       <h3 class="text-center">Welcome!</h3>
-<!--      <p class="text-center text-muted px-3">Please log in to your PAA account to access your dashboard, manage your profile,-->
-<!--        and explore more features.</p>-->
       <div class="p-card">
 
         <app-sp-input [(ngModel)]="loginRequest.email" [errorHandler]="errorHandler('email')"
-          id="email"  placeHolder="Email" type="email" icon="pi pi-envelope"  >
+          id="email"  placeHolder="Email" type="email" icon="pi pi-envelope">
         </app-sp-input>
 
         <app-sp-input [(ngModel)]="loginRequest.password" [errorHandler]="errorHandler('password')"
@@ -24,7 +21,7 @@
           (click)="login()"
           [loading]="loginLoadingFlag"
           label="Login"
-          styleClass="L_Button S_Button"
+          [styleClass]="'large-btn'"
          >
           </app-sp-button>
         </div>

@@ -98,9 +98,9 @@ export class SpTableComponent implements OnChanges {
     if (this.showSkeleton && (this.tableData?.length === 0 && this.tableColumns.length > 0)) {
       this.tableData = []
       this.tableData = Array(5).fill(null).map((_, rowIndex) => {
-        const rowData = {};
+        // const rowData = {};
+        const rowData: { [key: string]: any } = {};
         this.tableColumns.forEach((col, colIndex) => {
-          // @ts-ignore
           rowData[col.header || `column${colIndex + 1}`] = `Data ${rowIndex + 1}-${colIndex + 1}`;
         });
         return rowData;

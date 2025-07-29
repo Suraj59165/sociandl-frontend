@@ -7,7 +7,7 @@ import { SpErrorHandlerData } from '../../models/sp-error-handler';
   selector: 'app-sp-input',
   standalone: false,
   template: `
- <div class="mt-3">
+ <div class="custom-input">
   <p-floatlabel variant="on">
     <div class="input-wrapper position-relative">
     <p-iconfield >
@@ -37,7 +37,8 @@ import { SpErrorHandlerData } from '../../models/sp-error-handler';
         (change)="onChangeEvent.emit($event)"
         (click)="onClick.emit($event)"
         (dblclick)="onDblClick.emit($event)"
-         (copy)="onCopy($event)"
+        (copy)="onCopy($event)"
+        [ngModelOptions]="{ standalone: true }"
         #ngModel="ngModel"
       />
       </p-iconfield>
@@ -106,7 +107,7 @@ export class SpInputComponent implements ControlValueAccessor, AfterViewInit {
   value: any = '';
 
   showStartIcon(id: string): boolean {
-    return ['email', 'password','confirmPassword','username','phoneNumber'].includes(id); 
+    return ['email', 'password','confirmPassword','username','phoneNumber'].includes(id);
   }
 
   togglePasswordVisibility() {

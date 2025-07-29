@@ -13,7 +13,7 @@ export class AuthGuard implements CanActivate {
     const isAuthenticated = await this.tokenService.IS_AUTHENTICATED_USER();
 
     if (isAuthenticated) {
-      this.router.navigate(['paa-block']);
+      await this.router.navigate(['sociandl']);
       return false;
     }
 

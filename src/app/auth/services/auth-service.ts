@@ -2,7 +2,6 @@ import {HttpRequestType, HttpService} from '../../core/services/http-service';
 import {Injectable} from '@angular/core';
 import {Observable} from 'rxjs';
 import {LoginRequest} from '../models/login-request';
-import {RegisterRequest} from '../models/register-request';
 import {OtpVerification} from '../models/otp-verfication';
 import {ResetPassword} from '../models/reset-password';
 import {User} from '../models/user';
