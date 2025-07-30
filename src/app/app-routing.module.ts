@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import {AuthGuard} from './core/guard/auth-guard.service';
+import {DashboardGuard} from './core/guard/dashboard-guard';
 
 export const routes: Routes = [
 
@@ -14,6 +15,12 @@ export const routes: Routes = [
     loadChildren: () => import('./auth/auth.module').then(mod => mod.AuthModule),
     canActivate: [AuthGuard]
   },
+  {
+    path: 'social-handler',
+    loadChildren: () => import('./social-handler/social-handler.module').then(mod => mod.SocialHandlerModule),
+    canActivate: [DashboardGuard]
+  },
+
   {
     path: '**',
     redirectTo: '',

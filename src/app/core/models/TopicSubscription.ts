@@ -3,4 +3,4 @@ interface TopicSubscription {
   subscription: any;
 }
 
-subscriptions: TopicSubscription[] = [];
+// subscriptions:TopicSubscription[] = [];

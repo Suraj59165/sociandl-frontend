@@ -14,27 +14,27 @@ export class AuthService {
   }
 
   loginUser(user: LoginRequest): Observable<any> {
-    return this.httpService.getResponse('paa-block/login', HttpRequestType.POST, user);
+    return this.httpService.getResponse('sociander/login', HttpRequestType.POST, user);
   }
 
   registerUser(user: User): Observable<any> {
-    return this.httpService.getResponse('paa-block/register', HttpRequestType.POST, user);
+    return this.httpService.getResponse('sociander/register', HttpRequestType.POST, user);
   }
 
   initData(): Observable<any> {
-    return this.httpService.getResponse('paa-block/init', HttpRequestType.GET);
+    return this.httpService.getResponse('sociander/init', HttpRequestType.GET);
   }
 
   generateOtp(otpVerification: OtpVerification): Observable<any> {
-    return this.httpService.getResponse('paa-block/generate-otp', HttpRequestType.POST, otpVerification);
+    return this.httpService.getResponse('sociander/generate-otp', HttpRequestType.POST, otpVerification);
   }
 
   otpVerification(otpVerification: OtpVerification): Observable<any> {
-    return this.httpService.getResponse('paa-block/otp-verify', HttpRequestType.POST, otpVerification);
+    return this.httpService.getResponse('sociander/otp-verify', HttpRequestType.POST, otpVerification);
   }
 
   updatePassword(resetPassword: ResetPassword): Observable<any> {
-    return this.httpService.getResponse('paa-block/reset-password', HttpRequestType.POST, resetPassword);
+    return this.httpService.getResponse('sociander/reset-password', HttpRequestType.POST, resetPassword);
   }
 
 }

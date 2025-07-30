@@ -30,7 +30,7 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
     this.route.queryParams.subscribe(params => {
-      this.returnUrl = params['returnUrl'] || '/paa-block';
+      // this.returnUrl = params['returnUrl'] || '/social-handler';
     });
   }
 

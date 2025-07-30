@@ -1,18 +1,17 @@
-import { Component, ElementRef, ViewChild } from '@angular/core';
-import { User } from '../models/user';
-import { RegisterRequest } from '../models/register-request';
-import { AuthService } from '../services/auth-service';
-import { ToastService } from '../../shared/services/toast-service';
-import { HttpStatusCustom } from '../../core/constants/core-const';
-import { Router, RouterModule } from '@angular/router';
-import { OtpVerification } from '../models/otp-verfication';
-import { AppConst } from '../../shared/constants/app-const';
-import { SpProgressBarService } from '../../shared/services/sp-progress-bar-service';
-import { SharedModule } from '../../shared/shared.module';
-import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
-import { SpErrorHandler, SpErrorHandlerData } from '../../shared/models/sp-error-handler';
-import { AppUtilService } from '../../shared/services/app-util-service';
+import {Component, ElementRef, ViewChild} from '@angular/core';
+import {User} from '../models/user';
+import {AuthService} from '../services/auth-service';
+import {ToastService} from '../../shared/services/toast-service';
+import {HttpStatusCustom} from '../../core/constants/core-const';
+import {Router, RouterModule} from '@angular/router';
+import {OtpVerification} from '../models/otp-verfication';
+import {AppConst} from '../../shared/constants/app-const';
+import {SpProgressBarService} from '../../shared/services/sp-progress-bar-service';
+import {SharedModule} from '../../shared/shared.module';
+import {CommonModule} from '@angular/common';
+import {FormsModule} from '@angular/forms';
+import {SpErrorHandler, SpErrorHandlerData} from '../../shared/models/sp-error-handler';
+import {AppUtilService} from '../../shared/services/app-util-service';
 
 @Component({
   selector: 'app-register',
@@ -24,25 +23,15 @@ import { AppUtilService } from '../../shared/services/app-util-service';
   standalone: true
 })
 export class RegisterComponent {
-  @ViewChild('videoElement') videoElement!: ElementRef;
-  @ViewChild('canvasElement') canvasElement!: ElementRef;
 
-  capturedImage: string | null = null;
-  isCameraOn: boolean = false;
-
-  selectMedium: boolean = false;
   user: User = new User();
   otpVerification: OtpVerification;
-  showProgressBar: boolean = false;
   otpSent: boolean = false;
   registerLoadingFlag: boolean = false;
   fieldErrors: any = [];
   seconds: number = 30;
   interval: any;
   spErrorHandler = new SpErrorHandler();
-  profileImageUploaded: boolean;
-  protected readonly EntityModuleCode = AppConst.ENTITY_MODULE_CODE
-  protected readonly EntityDocType = AppConst.ENTITY_DOC_TYPE
   error: string;
 
   constructor(private appUtilService: AppUtilService, private authService: AuthService, private router: Router, private toastService: ToastService, private progressBarService: SpProgressBarService) {
@@ -50,13 +39,6 @@ export class RegisterComponent {
 
   proceedToVerification() {
     this.validateData()
-    // if (!this.profileImageUploaded) {
-    //   this.error = "Profile Image not uploaded";
-    // }
-    // else {
-    //   this.error = ""
-    // }
-
     if (!this.spErrorHandler.invalid) {
       if (this.otpSent) {
         this.validateOtp()
@@ -71,7 +53,6 @@ export class RegisterComponent {
   }
 
   registerUser() {
-    // this.uploadCapturedImage();
     this.progressBarService.show();
     this.registerLoadingFlag = true;
     this.authService.registerUser(this.user).subscribe((response: any) => {
@@ -102,10 +83,12 @@ export class RegisterComponent {
   }
 
   generateOTP() {
-
+    console.log('Generating OTP');
     this.seconds = 30;
     this.registerLoadingFlag = true;
     this.setOTPVerification();
+    console.log('setting OTP object');
+
     this.authService.generateOtp(this.otpVerification).subscribe((response: any) => {
       if (response.status == HttpStatusCustom.OK && response.data.otpVerification) {
         this.toastService.showToast("success", "OTP has been sent to your email");
@@ -118,6 +101,8 @@ export class RegisterComponent {
         this.appUtilService.backendValidation(response, this.spErrorHandler);
         this.registerLoadingFlag = false;
 
+      }else{
+        console.log(response);
       }
     })
 
@@ -136,67 +121,6 @@ export class RegisterComponent {
       }
     }, 1000);
   }
-
-  // startCamera() {
-  //   this.isCameraOn = true;
-  //   this.capturedImage = null;
-  //   this.selectMedium = false;
-
-  //   navigator.mediaDevices.getUserMedia({ video: true })
-  //     .then(stream => {
-  //       this.videoElement.nativeElement.srcObject = stream;
-
-  //     })
-  //     .catch(error => {
-  //       alert('Error accessing the camera: ' + error);
-  //     });
-  // }
-
-  // retakePhoto() {
-  //   this.capturedImage = null;
-  //   this.startCamera();
-  // }
-
-
-  // capturePhoto() {
-  //   if (!this.videoElement) return;
-  //   const canvas = document.createElement('canvas');
-  //   const video = this.videoElement.nativeElement;
-  //   const context = canvas.getContext('2d');
-
-  //   canvas.width = video.videoWidth;
-  //   canvas.height = video.videoHeight;
-  //   context.drawImage(video, 0, 0, canvas.width, canvas.height);
-
-  //   this.capturedImage = canvas.toDataURL('image/png');
-
-  //   const stream = video.srcObject as MediaStream;
-  //   if (stream) {
-  //     stream.getTracks().forEach(track => track.stop());
-  //     video.srcObject = null;
-  //   }
-  //   this.isCameraOn = false;
-  //   if (this.capturedImage) {
-  //     this.profileImageUploaded = true;
-  //   }
-
-  // }
-
-  // uploadCapturedImage() {
-  //   this.user.documents = this.user.documents.filter(
-  //     doc => doc.entityDocType !== AppConst.ENTITY_DOC_TYPE.PROFILE_IMAGE
-  //   );
-  //   const image = {
-  //     fileName: `profile-image-${Date.now()}.png`,
-  //     fileType: 'image/png',
-  //     fileSize: this.capturedImage.length,
-  //     entityDocType: AppConst.ENTITY_DOC_TYPE.PROFILE_IMAGE,
-  //     entityModuleCode: AppConst.ENTITY_MODULE_CODE.USER,
-  //     fileData: this.capturedImage.split(',')[1]
-  //   };
-
-  //   this.user.documents.push(image);
-  // }
 
   validateData() {
     this.spErrorHandler.clearError()
@@ -217,9 +141,6 @@ export class RegisterComponent {
     if (this.user.userAuth?.password !== this.user.existingPassword) {
       this.spErrorHandler.addError('existingPassword', "Password does not match");
     }
-
-    this.spErrorHandler.emptyCheck(this.user.phoneNumber, 'phoneNumber');
-    // this.spErrorHandler.emptyCheck(this.user.documents, 'documents');
 
   }
 
