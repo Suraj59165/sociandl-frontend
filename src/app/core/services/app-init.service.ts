@@ -30,6 +30,7 @@ export class AppInitService {
 
   async getFrontendData(): Promise<void> {
     try {
+      console.log("inside getFrontendData");
       const response = await this.authService.initData().toPromise();
       if (response && response.status === 200 && response.data.data) {
         const data = response.data.data;

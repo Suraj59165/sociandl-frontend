@@ -1,0 +1,48 @@
+<div
+  class="navbar navbar-dark bg-dark px-3 border-bottom d-flex sticky-header justify-content-end align-items-center">
+
+  <div #profileContainer (click)="toggleProfilePopup()" class="profile">
+    <div class="profile-avatar bg-light rounded-circle d-flex align-items-center justify-content-center"
+         style="width: 40px; height: 40px">
+       <span *ngIf="!user.profileUrl" class="fs-4">{{ user.name.charAt(0).toUpperCase() }}</span>
+
+      <img *ngIf="user.profileUrl" [src]="user.profileUrl" alt="Profile" class="rounded-circle mb-2" height="40"
+           width="40"/>
+    </div>
+    <div (click)="$event.stopPropagation()" *ngIf="profilePopupVisible" class="profile-popup">
+      <div class="profile-content">
+        <div class="profile-body border-bottom pb-3">
+          <div class="d-flex align-items-center gap-3">
+            <div class="profile-avatar bg-light rounded-circle d-flex align-items-center justify-content-center"
+                 style="width: 40px; height: 40px">
+              <!-- <span *ngIf="!user.profileUrl" class="fs-4">{{ user.name?.charAt(0) }}</span> -->
+              <img *ngIf="user.profileUrl" [src]="user.profileUrl" alt="Profile" class="rounded-circle mb-2" height="40"
+                   width="40"/>
+
+            </div>
+            <div>
+              <h6 class="mb-1">{{ user.name }}</h6>
+              <small class="text-muted d-block">{{ user.email }} </small>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="profile-actions mt-3 w-100">
+        <ul class="d-flex flex-column mx-0 p-0" style="list-style: none">
+
+          <a (click)="toggleProfilePopup()" class="text-decoration-none text-dark" routerLink="/paa-block/profile">
+            <li class="text-decoration-none text-start py-1 px-3 w-100">
+              <i class="pi pi-user me-2" style="font-size: 14px"></i> Profile
+            </li>
+          </a>
+
+          <li (click)="logOutUser()" class="text-decoration-none text-start py-1 px-3">
+            <i class="pi pi-sign-out me-2" style="font-size: 14px"></i> Logout
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

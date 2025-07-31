@@ -26,6 +26,7 @@ import { AvatarModule } from 'primeng/avatar';
 import { InputOtpModule } from 'primeng/inputotp';
 import { LayoutDashboardComponent } from './layout-dashboard/layout-dashboard.component';
 import { HomeComponent } from './home/home.component';
+import { HeaderComponent } from './layout-dashboard/header/header.component';
 
 
 const routes: Routes = [
@@ -60,7 +61,8 @@ const routes: Routes = [
 
   
     LayoutDashboardComponent,
-         HomeComponent
+         HomeComponent,
+         HeaderComponent
   ],
   imports: [
     CommonModule,

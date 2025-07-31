@@ -26,6 +26,7 @@ export class HttpRequestService {
         credentials: "include"
       }
     };
+    console.log(options);
     if (method !== HttpRequestType.GET && method !== HttpRequestType.DELETE) {
       options.data = data;
     }
