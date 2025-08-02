@@ -59,7 +59,7 @@ const routes: Routes = [
 @NgModule({
   declarations: [
 
-  
+
     LayoutDashboardComponent,
          HomeComponent,
          HeaderComponent
